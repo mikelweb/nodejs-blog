@@ -1,0 +1,14 @@
+{
+  "name": "api-rest-node",
+  "version": "1.0.0",
+  "description": "API REST con NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "Mikel G",
+  "license": "ISC",
+  "dependencies": {
+  }
+}
