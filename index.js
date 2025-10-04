@@ -13,3 +13,7 @@ app.use(cors());
 // Convert body to JS Obj
 app.use(express.json());
 
+// Run server and listen on port 3900
+app.listen(port, () => {
+    console.log("Server running on port " + port)
+});
