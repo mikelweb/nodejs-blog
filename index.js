@@ -26,11 +26,13 @@ app.get("/probandojson", (req, res) => {
     console.log("Se ha ejecutado el endpoint /probandojson");
 
     return res.status(200).json(
+        [
             {
                 "nombre":"Python",
                 "horas":25,
                 "dificultad":"media"
             }
+        ]    
     );
 })
 
