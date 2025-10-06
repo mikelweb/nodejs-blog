@@ -31,6 +31,11 @@ app.get("/probandojson", (req, res) => {
                 "nombre":"Python",
                 "horas":25,
                 "dificultad":"media"
+            },
+            {
+                "nombre":"NodeJS",
+                "horas":40,
+                "dificultad":"media"
             }
         ]    
     );
