@@ -20,34 +20,6 @@ app.use(express.json());
 const articleRoutes = require("./routes/article");
 app.use("/api", articleRoutes);
 
-// Hardcoded routes
-app.get("/probando", (req, res) => {
-    console.log("Se ha ejecutado el endpoint /probando");
-
-    return res.status(200).send(`
-        <h1>Endpoint /probando</h1>
-    `);
-})
-
-app.get("/probandojson", (req, res) => {
-    console.log("Se ha ejecutado el endpoint /probandojson");
-
-    return res.status(200).json(
-        [
-            {
-                "nombre":"Python",
-                "horas":25,
-                "dificultad":"media"
-            },
-            {
-                "nombre":"NodeJS",
-                "horas":40,
-                "dificultad":"media"
-            }
-        ]    
-    );
-})
-
 // Run server and listen on port 3900
 app.listen(port, () => {
     console.log("Server running on port " + port)
