@@ -15,6 +15,8 @@ app.use(cors());
 
 // Convert body to JS Obj
 app.use(express.json());
+// Get x-www-urlencoded
+app.use(express.urlencoded({extended: true}));
 
 // Article routes
 const articleRoutes = require("./routes/article");
