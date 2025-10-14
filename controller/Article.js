@@ -65,4 +65,5 @@ const createArticle = (req, res) => {
 module.exports = {
     prueba,
     cursos
+    createArticle,
 }
