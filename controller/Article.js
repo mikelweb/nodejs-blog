@@ -1,3 +1,4 @@
+const validator = require("validator");
 const Article = require("../model/Article")
 
 const prueba = (req, res) => {
@@ -29,6 +30,21 @@ const createArticle = (req, res) => {
 
     // Post params
     let params = req.body;
+
+    try {
+
+        let validarTitulo = !validator.isEmpty(params.title) && validator.isLength(params.title, {min: 3, max: undefined});
+        let validarContenido = !validator.isEmpty(params.content);
+
+        if(!validarTitulo || !validarContenido) {
+            throw new Error("No se ha validad la información");
+        }
+    } catch {
+        return res.status(400).json({
+            status: "error",
+            mensaje: "faltan datos por enviar"
+        });
+    }
 
     const article = new Article(params);
 
