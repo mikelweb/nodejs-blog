@@ -62,6 +62,28 @@ const createArticle = (req, res) => {
             });
         });
 }
+
+const getArticles = (req, res) => {
+    let query = Article.find();
+    
+    query.exec()
+        .then(result => {
+            // console.log(result);
+
+            return res.status(200).send({
+                status: "success",
+                articles: result
+            });
+        })
+        .catch(error => {
+            console.log(error);
+
+            return res.status(404).json({
+                status: "error",
+                mensaje: "No se han encontrado artículos"
+            });
+        });
+}
 module.exports = {
     prueba,
     cursos
