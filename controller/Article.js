@@ -66,6 +66,10 @@ const createArticle = (req, res) => {
 const getArticles = (req, res) => {
     let query = Article.find();
     
+    // if(req.params.limit) {
+    //     query.limit(3);
+    // }
+    
     query.exec()
         .then(result => {
             // console.log(result);
