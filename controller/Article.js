@@ -88,6 +88,38 @@ const getArticles = (req, res) => {
             });
         });
 }
+
+const getArticle = (req, res) => {
+
+    let id = req.params.id;
+
+    if(!id) {
+        return res.status(404).json({
+            status: "error",
+            mensaje: "No se han proporcionado id del artículo"
+        });
+    }
+
+    let query = Article.findById(id);
+    
+    query.exec()
+        .then(result => {
+            // console.log(result);
+
+            return res.status(200).send({
+                status: "success",
+                article: result
+            });
+        })
+        .catch(error => {
+            console.log(error);
+
+            return res.status(500).json({
+                status: "error",
+                mensaje: "Error al obtener el artículo"
+            });
+        });
+}
 module.exports = {
     prueba,
     cursos
