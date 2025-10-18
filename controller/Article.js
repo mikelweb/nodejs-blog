@@ -124,4 +124,5 @@ module.exports = {
     prueba,
     cursos,
     createArticle,
+    getArticles,
 }
