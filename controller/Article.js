@@ -122,6 +122,6 @@ const getArticle = (req, res) => {
 }
 module.exports = {
     prueba,
-    cursos
+    cursos,
     createArticle,
 }
