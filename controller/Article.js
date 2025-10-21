@@ -157,6 +157,61 @@ const deleteArticle = (req, res) => {
             });
         });
 }
+
+const updateArticle = (req, res) => {
+
+    // Post params
+    let params = req.body;
+    let id = req.params.id;
+
+    if(!id) {
+        return res.status(404).json({
+            status: "error",
+            mensaje: "No se han proporcionado id del artículo"
+        });
+    }
+
+    try {
+
+        let validarTitulo = !validator.isEmpty(params.title) && validator.isLength(params.title, {min: 3, max: undefined});
+        let validarContenido = !validator.isEmpty(params.content);
+
+        if(!validarTitulo || !validarContenido) {
+            throw new Error("No se ha validad la información");
+        }
+    } catch {
+        return res.status(400).json({
+            status: "error",
+            mensaje: "faltan datos por enviar"
+        });
+    }
+
+    let query = Article.findOneAndUpdate({_id:id}, params);
+    
+    query.exec()
+        .then(result => {
+            // console.log(result);
+            if(!result) {
+                return res.status(500).send({
+                    status: "error",
+                    mensaje: "No se ha encontrado el artículo"
+                });                    
+            }
+            return res.status(200).send({
+                status: "success",
+                article: result
+            });
+        })
+        .catch(error => {
+            console.log(error);
+
+            return res.status(500).json({
+                status: "error",
+                mensaje: "No se ha encontrado el artículo"
+            });
+        });
+}
+
 module.exports = {
     prueba,
     cursos,
