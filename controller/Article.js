@@ -163,4 +163,5 @@ module.exports = {
     createArticle,
     getArticles,
     getArticle,
+    deleteArticle,
 }
