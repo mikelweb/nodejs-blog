@@ -172,13 +172,7 @@ const updateArticle = (req, res) => {
     }
 
     try {
-
-        let validarTitulo = !validator.isEmpty(params.title) && validator.isLength(params.title, {min: 3, max: undefined});
-        let validarContenido = !validator.isEmpty(params.content);
-
-        if(!validarTitulo || !validarContenido) {
-            throw new Error("No se ha validad la información");
-        }
+        validateData(params);
     } catch {
         return res.status(400).json({
             status: "error",
@@ -210,6 +204,15 @@ const updateArticle = (req, res) => {
                 mensaje: "No se ha encontrado el artículo"
             });
         });
+}
+
+const validateData = (params) => {
+    let validarTitulo = !validator.isEmpty(params.title) && validator.isLength(params.title, {min: 3, max: undefined});
+    let validarContenido = !validator.isEmpty(params.content);
+
+    if(!validarTitulo || !validarContenido) {
+        throw new Error("No se ha validad la información");
+    }
 }
 
 module.exports = {
