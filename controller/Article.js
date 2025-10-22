@@ -219,4 +219,5 @@ module.exports = {
     getArticles,
     getArticle,
     deleteArticle,
+    updateArticle
 }
