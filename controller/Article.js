@@ -7,25 +7,6 @@ const prueba = (req, res) => {
     })
 }
 
-const cursos = (req, res) => {
-    console.log("Se ha ejecutado el endpoint /cursos");
-
-    return res.status(200).json(
-        [
-            {
-                "nombre":"Python",
-                "horas":25,
-                "dificultad":"media"
-            },
-            {
-                "nombre":"NodeJS",
-                "horas":40,
-                "dificultad":"media"
-            }
-        ]
-    );
-}
-
 const createArticle = (req, res) => {
 
     // Post params
@@ -217,7 +198,6 @@ const validateData = (params) => {
 
 module.exports = {
     prueba,
-    cursos,
     createArticle,
     getArticles,
     getArticle,
