@@ -1,12 +1,6 @@
 const validator = require("validator");
 const Article = require("../model/Article")
 
-const prueba = (req, res) => {
-    return res.status(200).json({
-        mensaje:"Mensaje de prueba"
-    })
-}
-
 const createArticle = (req, res) => {
 
     // Post params
