@@ -1,5 +1,6 @@
 const validator = require("validator");
 const Article = require("../model/Article")
+const { validateArticle } = require("../helpers/validate")
 
 const createArticle = (req, res) => {
 
@@ -147,7 +148,7 @@ const updateArticle = (req, res) => {
     }
 
     try {
-        validateData(params);
+        validateArticle(params);
     } catch {
         return res.status(400).json({
             status: "error",
