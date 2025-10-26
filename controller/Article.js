@@ -1,4 +1,3 @@
-const validator = require("validator");
 const Article = require("../model/Article")
 const { validateArticle } = require("../helpers/validate")
 
@@ -8,13 +7,7 @@ const createArticle = (req, res) => {
     let params = req.body;
 
     try {
-
-        let validarTitulo = !validator.isEmpty(params.title) && validator.isLength(params.title, {min: 3, max: undefined});
-        let validarContenido = !validator.isEmpty(params.content);
-
-        if(!validarTitulo || !validarContenido) {
-            throw new Error("No se ha validad la información");
-        }
+        validateArticle(params);
     } catch {
         return res.status(400).json({
             status: "error",
