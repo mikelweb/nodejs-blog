@@ -176,7 +176,6 @@ const updateArticle = (req, res) => {
 }
 
 module.exports = {
-    prueba,
     createArticle,
     getArticles,
     getArticle,
