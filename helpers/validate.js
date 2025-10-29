@@ -8,3 +8,7 @@ const validateArticle = (params) => {
         throw new Error("No se ha validad la información");
     }
 }
+
+module.exports = {
+    validateArticle
+}
