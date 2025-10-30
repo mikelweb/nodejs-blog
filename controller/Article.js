@@ -129,9 +129,11 @@ const deleteArticle = (req, res) => {
 
 const updateArticle = (req, res) => {
 
-    // Post params
-    let params = req.body;
+    // URL param
     let id = req.params.id;
+    
+    // POST body params
+    let params = req.body;
 
     if(!id) {
         return res.status(404).json({
