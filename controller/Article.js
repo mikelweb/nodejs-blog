@@ -135,10 +135,11 @@ const updateArticle = (req, res) => {
     // POST body params
     let params = req.body;
 
+    // Validate params
     if(!id) {
         return res.status(404).json({
             status: "error",
-            mensaje: "No se han proporcionado id del artículo"
+            mensaje: "No se ha proporcionado id del artículo"
         });
     }
 
