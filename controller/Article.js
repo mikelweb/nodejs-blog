@@ -152,6 +152,7 @@ const updateArticle = (req, res) => {
         });
     }
 
+    // Update article
     let query = Article.findOneAndUpdate({_id:id}, params);
     
     query.exec()
