@@ -188,6 +188,16 @@ const uploadFileToArticle = (req, res) => {
         });
     }
 
+    // URL param
+    let articuloId = req.params.id;
+    
+    // Validate param
+    if(!articuloId) {
+        return res.status(404).json({
+            status: "error",
+            mensaje: "No se ha proporcionado id del artículo"
+        });
+    }
 }
 module.exports = {
     createArticle,
