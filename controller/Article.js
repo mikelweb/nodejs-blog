@@ -179,6 +179,16 @@ const updateArticle = (req, res) => {
         });
 }
 
+const uploadFileToArticle = (req, res) => {
+    // Check if there's a file
+    if(!req.file && !req.files) {
+        return res.status(404).json({
+            status: "error",
+            mensaje: "No se ha cargado el archivo"
+        });
+    }
+
+}
 module.exports = {
     createArticle,
     getArticles,
