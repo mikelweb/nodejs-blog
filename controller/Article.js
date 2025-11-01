@@ -1,5 +1,6 @@
 const Article = require("../model/Article")
 const { validateArticle } = require("../helpers/validate")
+const { error } = require("console");
 
 const createArticle = (req, res) => {
 
@@ -198,6 +199,12 @@ const uploadFileToArticle = (req, res) => {
             mensaje: "No se ha proporcionado id del artículo"
         });
     }
+
+    let archivo = req.file;
+    // console.log(archivo);
+
+    // Check file type
+    const mimetypes = ["image/jpg", "image/jpeg", "image/png", "image/gif"];
 }
 module.exports = {
     createArticle,
