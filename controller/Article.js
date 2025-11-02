@@ -205,6 +205,19 @@ const uploadFileToArticle = (req, res) => {
 
     // Check file type
     const mimetypes = ["image/jpg", "image/jpeg", "image/png", "image/gif"];
+
+    // If wrong type, delete uploaded file
+    if(!mimetypes.includes(archivo.mimetype)) {
+
+        fs.unlink(req.file.path, (error) => {
+            return res.status(400).json({
+                status: "error",
+                mensaje: "Tipo de archivo no válido"
+            });
+        });
+    } else { // Else, OK
+    }
+}
 }
 module.exports = {
     createArticle,
