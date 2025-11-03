@@ -216,6 +216,26 @@ const uploadFileToArticle = (req, res) => {
             });
         });
     } else { // Else, OK
+        // Update article
+        let query = Article.findOneAndUpdate({_id:articuloId}, {image:archivo.filename});
+        
+        query.exec()
+            .then(updatedArticle => {
+                return res.status(200).json({
+                    status: "success",
+                    article: updatedArticle,
+                    filef: req.file
+                });
+            })
+            .catch(error => {
+                console.log(error);
+
+                return res.status(500).json({
+                    status: "error",
+                    mensaje: "Error al actualizar el artículo"
+                });
+            });
+
     }
 }
 }
