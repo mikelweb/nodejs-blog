@@ -1,8 +1,9 @@
 const express = require("express");
 const multer = require("multer");
+const ArticleController = require("../controller/Article")
+
 const router = express.Router();
 
-const ArticleController = require("../controller/Article")
 
 router.get("/ruta-de-prueba", ArticleController.prueba);
 router.get("/cursos", ArticleController.cursos);
