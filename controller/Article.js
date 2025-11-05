@@ -238,6 +238,10 @@ const uploadFileToArticle = (req, res) => {
 
     }
 }
+
+const getImg = (req, res) => {
+}
+
 }
 module.exports = {
     createArticle,
