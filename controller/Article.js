@@ -1,6 +1,8 @@
 const Article = require("../model/Article")
 const { validateArticle } = require("../helpers/validate")
 const fs = require("fs");
+const path = require("path")
+
 const { error } = require("console");
 
 const createArticle = (req, res) => {
