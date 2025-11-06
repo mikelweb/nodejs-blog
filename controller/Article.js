@@ -240,6 +240,9 @@ const uploadFileToArticle = (req, res) => {
 }
 
 const getImg = (req, res) => {
+    let imgName = req.params.imagename;
+    let imgPath = "./files/img/" + imgName;
+
 }
 
 }
