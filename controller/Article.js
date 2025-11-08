@@ -246,6 +246,11 @@ const getImg = (req, res) => {
     let imgName = req.params.imagename;
     let imgPath = "./files/img/" + imgName;
 
+    fs.stat(imgPath, (error, exists) => {
+        if(exists) {
+            return res.sendFile(path.resolve(imgPath));
+        }
+    });
 }
 
 }
