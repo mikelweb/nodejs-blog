@@ -250,6 +250,10 @@ const getImg = (req, res) => {
         if(exists) {
             return res.sendFile(path.resolve(imgPath));
         }
+        return res.status(404).json({
+            status: "error",
+            mensaje: "La imagen no existe"
+        });
     });
 }
 
