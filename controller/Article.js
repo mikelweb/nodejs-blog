@@ -257,6 +257,7 @@ const getImg = (req, res) => {
     });
 }
 
+const search = async (req, res) => {
 }
 module.exports = {
     createArticle,
