@@ -267,4 +267,5 @@ module.exports = {
     updateArticle,
     uploadFileToArticle,
     getImg,
+    search
 }
