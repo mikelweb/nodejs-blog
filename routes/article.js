@@ -22,5 +22,6 @@ router.delete("/articulo/:id", ArticleController.deleteArticle);
 router.put("/articulo/:id", ArticleController.updateArticle);
 router.post("/upload-img/:id", [uploader.single("imgFile")], ArticleController.uploadFileToArticle);
 router.get("/image/:imagename", ArticleController.getImg);
+router.get("/search/:criteria", ArticleController.search);
 
 module.exports = router;
