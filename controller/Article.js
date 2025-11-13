@@ -258,7 +258,12 @@ const getImg = (req, res) => {
 }
 
 const search = async (req, res) => {
+    try {
+    }
+    catch(error) {
+    }
 }
+
 module.exports = {
     createArticle,
     getArticles,
