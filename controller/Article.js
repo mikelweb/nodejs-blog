@@ -259,6 +259,8 @@ const getImg = (req, res) => {
 
 const search = async (req, res) => {
     try {
+        const criteria = req.params.criteria;
+
     }
     catch(error) {
         return res.status(500).json({
