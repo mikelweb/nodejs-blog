@@ -261,6 +261,12 @@ const search = async (req, res) => {
     try {
         const criteria = req.params.criteria;
 
+        const articles = await Article.find({
+            "$or": [
+                {"title": { "$regex": criteria, "$options": "i" }},
+                {"content": { "$regex": criteria, "$options": "i" }}
+            ]
+        }).sort({date: -1});
     }
     catch(error) {
         return res.status(500).json({
