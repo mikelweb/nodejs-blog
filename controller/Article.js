@@ -267,6 +267,13 @@ const search = async (req, res) => {
                 {"content": { "$regex": criteria, "$options": "i" }}
             ]
         }).sort({date: -1});
+
+        if(!articles || articles.length === 0) {
+            return res.status(404).json({
+                status: "error",
+                mensaje: "No se han encontrado artículos con esos criterios"
+            });
+        }
     }
     catch(error) {
         return res.status(500).json({
