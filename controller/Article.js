@@ -274,6 +274,10 @@ const search = async (req, res) => {
                 mensaje: "No se han encontrado artículos con esos criterios"
             });
         }
+        return res.status(200).json({
+            status: "success",
+            articles
+        });
     }
     catch(error) {
         return res.status(500).json({
